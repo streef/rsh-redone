@@ -396,8 +396,6 @@ done:
 				FD_SET(2, &outfdset);
 				FD_CLR(esock, &infdset);
 			}
-		} else {
-			len[2] = 0;
 		}
 
 		if(FD_ISSET(2, &outfd)) {
