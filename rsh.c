@@ -369,6 +369,9 @@ done:
 	
 	maxfd = (sock>esock?sock:esock) + 1;
 	
+	len[0] = 0;
+	len[1] = 0;
+	len[2] = 0;
 	for(;;) {
 		errno = 0;
 		infd = infdset;
@@ -396,8 +399,6 @@ done:
 				FD_SET(2, &outfdset);
 				FD_CLR(esock, &infdset);
 			}
-		} else {
-			len[2] = 0;
 		}
 
 		if(FD_ISSET(2, &outfd)) {
